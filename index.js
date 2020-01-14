@@ -17,7 +17,6 @@ class VideoPlayer {
         this.twoX = this.player.querySelector('.twoX');
         this.speeds = this.player.querySelectorAll('.speed-size');
         this.fullScreen = this.player.querySelector('.full-screen');
-        this.figure = document.querySelector(`.figure`);
         this.progressBar = this.player.querySelector('progress');
         this.progressButton = this.player.querySelector('.progress-button');
         this.currentPosition = this.player.querySelector('.current-position');
@@ -27,16 +26,17 @@ class VideoPlayer {
         this.volumeSlider = this.player.querySelector('.volume-slider');
         this.volumeImage = this.player.querySelector('.volume-image');
         this.volume = this.player.querySelector('.volume');
-        this.hoverAction = this.player.querySelector('.figure:hover .bottom-panel');
+        this.hoverAction = this.player.querySelector('.player:hover .bottom-panel');
         this.lights = this.player.querySelector('.lights');
         this.body = this.player.querySelector('body');
         this.timeData = this.player.querySelector('.time-data');
         this.bufferedProgress = this.player.querySelector('.buffered');
+        this.body = document.querySelector('body');
 
     }
 
     initProgress() {
-        window.onload = function () {
+       this.player.onload = function () {
             this.video.onprogress = () => {
                 let duration = this.video.duration;
                 if (duration > 0) {
@@ -161,21 +161,39 @@ class VideoPlayer {
     handleScreenChange() {
         let fullScreenIcon = 'images/Video-FullScreen-Icon.svg';
         let normalScreenIcon = 'images/Video-NormalScreen-Icon.svg';
-
-        if (this.figure.classList.length === 1) {
-            this.figure.classList.add('.figure-fullscreen');
-            let figComp = window.getComputedStyle(this.figure);
-            let fontHeight = figComp.getPropertyValue('height').split('p')[0];
-            this.timeData.style.fontSize = fontHeight / 30 + 'px';
-            this.fullScreen.src = normalScreenIcon;
-
-        } else {
-            this.figure.classList.remove('.figure-fullscreen');
-            figComp = window.getComputedStyle(this.figure);
+        let playerFullscreen = 'player-fullscreen';
+        let figComp = window.getComputedStyle(this.player);
+        let allPlayers = document.querySelectorAll('.player');
+        console.log(this.player.classList)
+        if ([...this.player.classList].includes(playerFullscreen)) {
+            allPlayers.forEach((player) => {
+     
+                    player.style.display = 'initial';
+                
+            })
+            this.player.classList.remove('.player-fullscreen');
+            figComp = window.getComputedStyle(this.player);
             fontHeight = figComp.getPropertyValue('height').split('p')[0];
             this.fullScreen.src = fullScreenIcon;
             this.timeData.style.fontSize = fontHeight / 30 + 'px';
-        }
+            
+
+        } else {
+            
+            console.log(allPlayers);
+            allPlayers.forEach((player) => {
+                if(player !== this.player) {
+                    player.style.display = 'none';
+                }
+            })
+            this.player.classList.add('.player-fullscreen');
+            figComp = window.getComputedStyle(this.player);
+            let fontHeight = figComp.getPropertyValue('height').split('p')[0];
+            this.timeData.style.fontSize = fontHeight / 30 + 'px';
+            this.fullScreen.src = normalScreenIcon;
+            
+
+        }  
     }
 
     changeLocation(event) {
@@ -203,7 +221,7 @@ class VideoPlayer {
     panelUp(event) {
 
         this.bottomPanel.classList.add('panel-up');
-        let figComp = window.getComputedStyle(this.figure);
+        let figComp = window.getComputedStyle(this.player);
         let fontHeight = figComp.getPropertyValue('height').split('p')[0];
         this.timeData.style.fontSize = fontHeight / 30 + 'px';
 
@@ -219,13 +237,24 @@ class VideoPlayer {
     lightSwitch(event) {
         let lightsOn = 'images/lightsOn.svg';
         let lightsOff = 'images/lights.svg';
+       
         if (event.target.src.includes(lightsOn)) {
             this.lights.src = lightsOff;
-            body.style.backgroundColor = 'black';
+            this.body.style.backgroundColor = 'black';
         } else {
             this.lights.src = lightsOn;
-            body.style.backgroundColor = 'white';
+            this.body.style.backgroundColor = 'white';
         }
+
+        this.updateLightBulb();
+         
+    }
+
+    updateLightBulb() {
+        let allBulbs =document.querySelectorAll('.lights');
+        allBulbs.forEach((bulb) => {
+           bulb.src = this.lights.src;
+        });
     }
 
     muteVolume(event) {
@@ -247,8 +276,10 @@ class VideoPlayer {
 
 
     initHandlers() {
+        console.log(this.player)
         this.video.controls = false;
         this.oneX.style.backgroundColor = 'green';
+        
 
         this.playButton.onclick = () => this.playVideo(event);
 
@@ -266,10 +297,11 @@ class VideoPlayer {
         this.progressBar.onclick = () => this.changeLocation();
         this.volumeBar.onmousedown = () => this.clickHandle();
         this.volumeSlider.oninput = () => this.sliderVolume();
-        this.figure.onmouseenter = () => this.panelUp();
-        this.figure.onmouseleave = () => this.panelDown();
-        this.lights.onclick = () => this.lightSwitch();
+        this.player.onmouseenter = () => this.panelUp();
+        this.player.onmouseleave = () => this.panelDown();
+        this.lights.onclick = () => this.lightSwitch(event);
         this.volumeImage.onclick = () => this.muteVolume();
+        
     }
 
 }
@@ -277,8 +309,8 @@ class VideoPlayer {
 let video1 = new VideoPlayer('one');
 video1.initHandlers();
 
-// let video2 = new VideoPlayer('two');
-// player2.initEventHandlers();
+let video2 = new VideoPlayer('two');
+video2.initHandlers();
 
 
 
