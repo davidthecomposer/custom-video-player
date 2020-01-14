@@ -141,13 +141,13 @@ class VideoPlayer {
         this.speeds.forEach((speed) => {
             speed.style.backgroundColor = '';
         });
-        if (event.target === pointFiveX) {
+        if (event.target === this.pointFiveX) {
             this.video.playbackRate = 0.5;
             event.target.style.backgroundColor = 'green';
-        } else if (event.target === oneX) {
+        } else if (event.target === this.oneX) {
             this.video.playbackRate = 1.0;
             event.target.style.backgroundColor = 'green';
-        } else if (event.target === onePointFiveX) {
+        } else if (event.target === this.onePointFiveX) {
             this.video.playbackRate = 1.5;
             event.target.style.backgroundColor = 'green';
         } else {
@@ -164,35 +164,28 @@ class VideoPlayer {
         let playerFullscreen = 'player-fullscreen';
         let figComp = window.getComputedStyle(this.player);
         let allPlayers = document.querySelectorAll('.player');
-        console.log(this.player.classList)
+        let fontHeight = figComp.getPropertyValue('height').split('p')[0];
+
         if ([...this.player.classList].includes(playerFullscreen)) {
             allPlayers.forEach((player) => {
-     
-                    player.style.display = 'initial';
-                
+                    player.style.display = 'flex';     
             })
-            this.player.classList.remove('.player-fullscreen');
+            this.player.classList.remove('player-fullscreen');
             figComp = window.getComputedStyle(this.player);
             fontHeight = figComp.getPropertyValue('height').split('p')[0];
             this.fullScreen.src = fullScreenIcon;
             this.timeData.style.fontSize = fontHeight / 30 + 'px';
-            
-
         } else {
-            
-            console.log(allPlayers);
             allPlayers.forEach((player) => {
                 if(player !== this.player) {
                     player.style.display = 'none';
                 }
             })
-            this.player.classList.add('.player-fullscreen');
+            this.player.classList.add('player-fullscreen');
             figComp = window.getComputedStyle(this.player);
-            let fontHeight = figComp.getPropertyValue('height').split('p')[0];
+            fontHeight = figComp.getPropertyValue('height').split('p')[0];
             this.timeData.style.fontSize = fontHeight / 30 + 'px';
             this.fullScreen.src = normalScreenIcon;
-            
-
         }  
     }
 
@@ -283,7 +276,7 @@ class VideoPlayer {
 
         this.playButton.onclick = () => this.playVideo(event);
 
-        this.toggle.onclick = () => this.togglePanel();
+        this.toggle.onclick = () => this.togglePanel(event);
         this.bigPlayButton.onclick = () => this.alternatePlay();
         this.video.onclick = () => this.alternatePlay();
         this.video.ontimeupdate = () => this.getTime();
@@ -291,10 +284,10 @@ class VideoPlayer {
         this.skipBack.onclick = () => this.skipBack30();
         this.start.onclick = () => this.toStart();
         this.speeds.forEach((speed) => {
-            speed.onclick = () => this.playbackRate();
+            speed.onclick = () => this.playbackRate(event);
         });
-        this.fullScreen.onclick = () => this.handleScreenChange();
-        this.progressBar.onclick = () => this.changeLocation();
+        this.fullScreen.onclick = () => this.handleScreenChange(event);
+        this.progressBar.onclick = () => this.changeLocation(event);
         this.volumeBar.onmousedown = () => this.clickHandle();
         this.volumeSlider.oninput = () => this.sliderVolume();
         this.player.onmouseenter = () => this.panelUp();

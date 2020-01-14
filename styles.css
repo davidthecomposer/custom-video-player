@@ -113,12 +113,11 @@ video {
 
 }
 
-
-
 .bottom-panel {
     position: absolute;
     display: flex;
     flex-direction: column;
+
     height: 12%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.623);
@@ -133,17 +132,20 @@ video {
 .progress-row {
     display: flex;
     flex-direction: row;
-    height: 20%;
+    height: 4%;
     justify-content: flex-end;
+    align-items: center;
 
 
 }
 
 .controls-row {
     display: flex;
-    height: 80%;
+    height: 96%;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
+    
 
 }
 
@@ -172,12 +174,13 @@ video {
     align-items: center;
     cursor: pointer;
     width: 15%;
+    height: 60%;
 
 }
 
 .volume-image {
     padding-right: 3%;
-    height: 60%;
+    height: 40%;
 }
 
 .speed {
@@ -190,7 +193,22 @@ video {
 
 .speed-size {
     width: 35%;
+    height: 40%;
     padding: .1rem;
+}
+
+.toggle {
+    height:  40%;
+}
+
+.lights {
+ height: 40%;
+ width: 5%;
+}
+
+.full-screen {
+    height: 40%;
+    width: 5%;
 }
 
 .big-play:hover {
@@ -229,14 +247,14 @@ video::-webkit-media-controls {
 }
 
 .playback {
-    height: 100%;
+    height: 40%;
     width: 25%;
     display: flex;
     flex-direction: row;
 }
 
 .time-data {
-    height: 100%;
+    height: 40%;
     width: 25%;
     display: flex;
     font-size: 10px;
@@ -257,7 +275,7 @@ video::-webkit-media-controls {
 .progress {
     -webkit-appearance: none;
     width: 100%;
-    height: 25%;
+    height: 100%;
     cursor: pointer;
     z-index: 5;
 }
@@ -323,7 +341,7 @@ video::-webkit-media-controls {
     width: 6px;
     border-radius: 100%;
     background: radial-gradient(rgb(60, 255, 60), rgb(141, 245, 82), rgb(34, 255, 45));
-    top: -3.5%;
+   
     left: 0%;
     z-index: 6;
 }
