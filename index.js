@@ -269,7 +269,6 @@ class VideoPlayer {
 
 
     initHandlers() {
-        console.log(this.player)
         this.video.controls = false;
         this.oneX.style.backgroundColor = 'green';
         
