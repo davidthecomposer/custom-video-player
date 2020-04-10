@@ -1,91 +1,22 @@
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
 
 body {
@@ -145,8 +76,6 @@ video {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    
-
 }
 
 .big-play {
@@ -156,13 +85,10 @@ video {
     opacity: .15;
     display: flex;
     cursor: pointer;
-
-
-
 }
 
 .controls {
-    height: 70%;
+    height: 90%;
     margin: auto;
     cursor: pointer;
 
@@ -174,13 +100,13 @@ video {
     align-items: center;
     cursor: pointer;
     width: 15%;
-    height: 60%;
+    height: 80%;
 
 }
 
 .volume-image {
     padding-right: 3%;
-    height: 40%;
+    height: 50%;
 }
 
 .speed {
@@ -337,8 +263,8 @@ video::-webkit-media-controls {
 
 .progress-button {
     position: absolute;
-    height: 6px;
-    width: 6px;
+    height: 10px;
+    width: 10px;
     border-radius: 100%;
     background: radial-gradient(rgb(60, 255, 60), rgb(141, 245, 82), rgb(34, 255, 45));
    
@@ -349,21 +275,37 @@ video::-webkit-media-controls {
 .volume-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     position: relative;
-    width: 8px;
-    height: 8px;
+    width: 16px;
+    height: 16px;
     border-radius: 100%;
     border: solid 1p rgb(152, 172, 154);
     background: rgb(149, 255, 149);
     z-index: 6;
     visibility: hidden;
     outline: 0;
-    margin-top: 1%;
+    
+    margin-left: -2%;
+    cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    border: solid 1p rgb(152, 172, 154);
+    background: rgb(149, 255, 149);
+    z-index: 6;
+    visibility: hidden;
+    outline: 0;
+    
     margin-left: -2%;
     cursor: pointer;
 }
 
 .volume-fill {
-    position: absolute;
+    
     top: 0;
     width: 100%;
     height: 100%;
@@ -373,6 +315,12 @@ video::-webkit-media-controls {
 }
 
 .volume:hover .volume-slider::-webkit-slider-thumb {
+
+    visibility: visible;
+
+}
+
+.volume:hover .volume-slider::-moz-range-thumb {
 
     visibility: visible;
 
@@ -393,6 +341,10 @@ video::-webkit-media-controls {
 
 
 
+}
+
+.two {
+    width: 70%;
 }
 
 @keyframes slidein {
