@@ -1,16 +1,84 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -20,125 +88,114 @@ time, mark, audio, video {
 }
 
 body {
-    background-color: rgba(202, 202, 202, 0.397);
+	background-color: rgba(202, 202, 202, 0.397);
 }
 
 .player {
-    display: flex;
-    width: 40%;
-    
-    position: relative;
-    margin: 15% auto;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-
+	display: flex;
+	width: 80%;
+	position: relative;
+	margin: 15% auto;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
 }
 
 video {
-    position: relative;
-    border: rgb(139, 139, 150) solid 1px;
-    width: 100%;
-    height: 100%;
-
-
+	position: relative;
+	border: rgb(139, 139, 150) solid 1px;
+	width: 100%;
+	height: 100%;
 }
 
 .bottom-panel {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-
-    height: 12%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.623);
-    z-index: 3;
-    animation-duration: .25s;
-    animation-name: slideout;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	height: 12%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.623);
+	z-index: 3;
+	animation-duration: 0.25s;
+	animation-name: slideout;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
 }
 
 .progress-row {
-    display: flex;
-    flex-direction: row;
-    height: 4%;
-    justify-content: flex-end;
-    align-items: center;
-
-
+	display: flex;
+	flex-direction: row;
+	height: 4%;
+	justify-content: flex-end;
+	align-items: center;
 }
 
 .controls-row {
-    display: flex;
-    height: 96%;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+	display: flex;
+	height: 96%;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .big-play {
-    position: absolute;
-    width: 40%;
-    z-index: 3;
-    opacity: .15;
-    display: flex;
-    cursor: pointer;
+	position: absolute;
+	width: 40%;
+	z-index: 3;
+	opacity: 0.15;
+	display: flex;
+	cursor: pointer;
 }
 
 .controls {
-    height: 90%;
-    margin: auto;
-    cursor: pointer;
-
+	height: 90%;
+	margin: auto;
+	cursor: pointer;
 }
 
 .volume {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    cursor: pointer;
-    width: 15%;
-    height: 80%;
-
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	cursor: pointer;
+	width: 15%;
+	height: 80%;
 }
 
 .volume-image {
-    padding-right: 3%;
-    height: 50%;
+	padding-right: 3%;
+	height: 50%;
 }
 
 .speed {
-    display: flex;
-    flex-wrap: wrap;
-    width: 6%;
-    align-content: center;
-
+	display: flex;
+	flex-wrap: wrap;
+	width: 6%;
+	align-content: center;
 }
 
 .speed-size {
-    width: 35%;
-    height: 40%;
-    padding: .1rem;
+	width: 35%;
+	height: 40%;
+	padding: 0.1rem;
 }
 
 .toggle {
-    height:  40%;
+	height: 40%;
 }
 
 .lights {
- height: 40%;
- width: 5%;
+	height: 40%;
+	width: 5%;
 }
 
 .full-screen {
-    height: 40%;
-    width: 5%;
+	height: 40%;
+	width: 5%;
 }
 
 .big-play:hover {
-    opacity: 0.5;
+	opacity: 0.5;
 }
 
 .play:hover,
@@ -153,222 +210,190 @@ video {
 .toggle:hover,
 .lights:hover,
 .full-screen:hover {
-    opacity: 0.75;
+	opacity: 0.75;
 }
 
 video::-webkit-media-controls {
-    display: none !important;
+	display: none !important;
 }
 
 .player-fullscreen {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
 }
 
 .playback {
-    height: 40%;
-    width: 25%;
-    display: flex;
-    flex-direction: row;
+	height: 40%;
+	width: 25%;
+	display: flex;
+	flex-direction: row;
 }
 
 .time-data {
-    height: 40%;
-    width: 25%;
-    display: flex;
-    font-size: 10px;
-    font-size-adjust: none;
-    justify-content: center;
-    align-items: center;
-    color: white;
+	height: 40%;
+	width: 25%;
+	display: flex;
+	font-size: 10px;
+	font-size-adjust: none;
+	justify-content: center;
+	align-items: center;
+	color: white;
 }
 
 .current-position {
-    margin-right: 5%;
-
+	margin-right: 5%;
 }
 
 .time-remaining {
-    margin-left: 5%;
+	margin-left: 5%;
 }
 .progress {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    z-index: 5;
+	-webkit-appearance: none;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	z-index: 5;
 }
-    
-.progress::-webkit-progress-bar {
 
-    background-color: rgba(219, 219, 219, 0);
-    
+.progress::-webkit-progress-bar {
+	background-color: rgba(219, 219, 219, 0);
 }
 
 .progress::-webkit-progress-value {
-    background-color: rgba(81, 255, 0, 0.829);
-    
+	background-color: rgba(81, 255, 0, 0.829);
 }
 
-
 .buffered {
-    -webkit-appearance: none;
-    position: absolute;
-    width: 100%;
-    height: 5%;
-    cursor: pointer;
-    z-index: 4;
+	-webkit-appearance: none;
+	position: absolute;
+	width: 100%;
+	height: 5%;
+	cursor: pointer;
+	z-index: 4;
 }
 
 .buffered::-webkit-progress-bar {
-
-    background-color: rgb(218, 218, 218);
-    
+	background-color: rgb(218, 218, 218);
 }
 
 .buffered::-webkit-progress-value {
-    background-color: rgba(75, 75, 75, 0.445);
-    
+	background-color: rgba(75, 75, 75, 0.445);
 }
-
-
 
 /**/
 .volume-bar {
-    height: 10%;
-    width: 90%;
-    background: rgb(255, 255, 255);
-    position: relative;
+	height: 10%;
+	width: 90%;
+	background: rgb(255, 255, 255);
+	position: relative;
 
-    transition: all 0.01s;
-
+	transition: all 0.01s;
 }
 
 .volume-slider {
-    -webkit-appearance: none;
-    position: absolute;
-    width: 100%;
-    margin-top: -3px;
-    background: transparent;
-    outline: none;
-
+	-webkit-appearance: none;
+	position: absolute;
+	width: 100%;
+	margin-top: -3px;
+	background: transparent;
+	outline: none;
 }
 
 .progress-button {
-    position: absolute;
-    height: 10px;
-    width: 10px;
-    border-radius: 100%;
-    background: radial-gradient(rgb(60, 255, 60), rgb(141, 245, 82), rgb(34, 255, 45));
-   
-    left: 0%;
-    z-index: 6;
+	position: absolute;
+	height: 10px;
+	width: 10px;
+	border-radius: 100%;
+	background: radial-gradient(
+		rgb(60, 255, 60),
+		rgb(141, 245, 82),
+		rgb(34, 255, 45)
+	);
+
+	left: 0%;
+	z-index: 6;
 }
 
 .volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    position: relative;
-    width: 16px;
-    height: 16px;
-    border-radius: 100%;
-    border: solid 1p rgb(152, 172, 154);
-    background: rgb(149, 255, 149);
-    z-index: 6;
-    visibility: hidden;
-    outline: 0;
-    
-    margin-left: -2%;
-    cursor: pointer;
+	-webkit-appearance: none;
+	position: relative;
+	width: 16px;
+	height: 16px;
+	border-radius: 100%;
+	border: solid 1p rgb(152, 172, 154);
+	background: rgb(149, 255, 149);
+	z-index: 6;
+	visibility: hidden;
+	outline: 0;
+
+	margin-left: -2%;
+	cursor: pointer;
 }
 
 .volume-slider::-moz-range-thumb {
-    -webkit-appearance: none;
-    position: relative;
-    width: 16px;
-    height: 16px;
-    border-radius: 100%;
-    border: solid 1p rgb(152, 172, 154);
-    background: rgb(149, 255, 149);
-    z-index: 6;
-    visibility: hidden;
-    outline: 0;
-    
-    margin-left: -2%;
-    cursor: pointer;
+	-webkit-appearance: none;
+	position: relative;
+	width: 16px;
+	height: 16px;
+	border-radius: 100%;
+	border: solid 1p rgb(152, 172, 154);
+	background: rgb(149, 255, 149);
+	z-index: 6;
+	visibility: hidden;
+	outline: 0;
+
+	margin-left: -2%;
+	cursor: pointer;
 }
 
 .volume-fill {
-    
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgb(31, 111, 202);
-    z-index: 5;
-    transition: all 0.01s;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgb(31, 111, 202);
+	z-index: 5;
+	transition: all 0.01s;
 }
 
 .volume:hover .volume-slider::-webkit-slider-thumb {
-
-    visibility: visible;
-
+	visibility: visible;
 }
 
 .volume:hover .volume-slider::-moz-range-thumb {
-
-    visibility: visible;
-
+	visibility: visible;
 }
 
 .oswald {
-    font-family: 'Oswald', sans-serif;
-    
+	font-family: "Oswald", sans-serif;
 }
 
 .panel-up {
-
-
-    animation-duration: .25s;
-    animation-name: slidein;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-
-
-
-}
-
-.two {
-    width: 70%;
+	animation-duration: 0.25s;
+	animation-name: slidein;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
 }
 
 @keyframes slidein {
-    from {
-        bottom: -11.5%;
+	from {
+		bottom: -11.5%;
+	}
 
-    }
-
-    to {
-        bottom: 0;
-
-    }
+	to {
+		bottom: 0;
+	}
 }
 
 @keyframes slideout {
-    from {
-        bottom: 0;
+	from {
+		bottom: 0;
+	}
 
-    }
-
-    to {
-
-        bottom: -11.5%;
-
-    }
+	to {
+		bottom: -11.5%;
+	}
 }
-
